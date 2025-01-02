@@ -97,6 +97,7 @@ Components that can include simple logic to display information.
 Components that can include more complex logic to display data.
 
 - **Limitations**:
+
   - Can access local storage and global state (without modifying the latter).
   - May use all available hooks except those that interact with the network.
 
