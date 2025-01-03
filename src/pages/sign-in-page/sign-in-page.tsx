@@ -77,7 +77,7 @@ const SignInPage: React.FC = () => {
   return (
     <Center style={{ height: '100vh' }}>
       <Flex direction='column' gap={30}>
-        <Box pl={20}>
+        <Box pl={0}>
           <img src={StripeIcon} alt='Stripe Logo' width={58} height={24} />
         </Box>
         <Box
@@ -141,7 +141,7 @@ const SignInPage: React.FC = () => {
                 {...form.getInputProps('termsOfService', { type: 'checkbox' })}
               />
 
-              <Button w='100%' type='submit' mt='md' size='md' disabled={!form.values.termsOfService}>
+              <Button w='100%' type='submit' mt='md' size='md'>
                 Continue
               </Button>
 
