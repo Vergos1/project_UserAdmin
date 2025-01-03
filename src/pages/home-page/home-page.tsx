@@ -2,10 +2,6 @@ import { Loader } from '@mantine/core'
 import React from 'react'
 
 const HomePage: React.FC = () => {
-  return (
-    <>
-      <Loader color='gray' size={100} />
-    </>
-  )
+  return <>home</>
 }
 export default HomePage
