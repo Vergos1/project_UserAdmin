@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import {
   Box,
   Button,
@@ -17,9 +16,11 @@ import {
   BackgroundImage
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
+import { useNavigate } from 'react-router-dom' // Используется для перенаправления
 import { IconX, IconCheck } from '@tabler/icons-react'
 import StripeIcon from '../../assets/icons/Stripelogo.svg'
 import Background from '../../assets/images/app-background.jpg'
+import { showNotification } from '@mantine/notifications'
 
 function PasswordRequirement({ meets, label }: { meets: boolean; label: string }) {
   return (
@@ -28,7 +29,7 @@ function PasswordRequirement({ meets, label }: { meets: boolean; label: string }
         <IconCheck style={{ width: rem(14), height: rem(14) }} />
       ) : (
         <IconX style={{ width: rem(14), height: rem(14) }} />
-      )}{' '}
+      )}
       <Box ml={10}>{label}</Box>
     </Text>
   )
@@ -56,6 +57,8 @@ function getStrength(password: string) {
 const SignInPage: React.FC = () => {
   const [popoverOpened, setPopoverOpened] = useState(false)
   const [password, setPassword] = useState('')
+  const navigate = useNavigate() // Используется для перенаправления
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -67,6 +70,22 @@ const SignInPage: React.FC = () => {
       password: value => (getStrength(value) < 100 ? 'Password must meet all requirements' : null)
     }
   })
+
+  const handleSubmit = (values: typeof form.values) => {
+    console.log('Form submitted:', values)
+
+    showNotification({
+      title: 'Success',
+      message: 'You have successfully signed in!',
+      color: 'teal',
+      icon: <IconCheck size={16} />,
+      position: 'bottom-right'
+    })
+
+    setTimeout(() => {
+      navigate('/home')
+    }, 2000)
+  }
 
   const checks = requirements.map((requirement, index) => (
     <PasswordRequirement key={index} label={requirement.label} meets={requirement.re.test(password)} />
@@ -90,7 +109,7 @@ const SignInPage: React.FC = () => {
               padding: '50px'
             }}
           >
-            <form onSubmit={form.onSubmit(values => console.log(values))}>
+            <form onSubmit={form.onSubmit(handleSubmit)}>
               <Title order={3} pb={25} c='#505050'>
                 Sign in to your account
               </Title>
@@ -151,43 +170,9 @@ const SignInPage: React.FC = () => {
                 <Button w='100%' type='submit' mt='md' size='md'>
                   Continue
                 </Button>
-
-                <Anchor ta='center' href='/sign-on' size='sm' td='none'>
-                  Use single sign-on (SSO) instead
-                </Anchor>
               </Flex>
             </form>
           </Box>
-          <Flex direction='column' gap={20}>
-            <Flex gap={3} pl={20}>
-              <Text size='sm' c='#494949'>
-                Don’t have an account?
-              </Text>
-              <Anchor size='sm' href='/sign-in'>
-                Sign up
-              </Anchor>
-            </Flex>
-            <Flex gap={5} pl={20}>
-              <Text
-                size='sm'
-                style={{
-                  color: '#494949',
-                  textTransform: 'capitalize',
-
-                  fontWeight: 400,
-                  cursor: 'pointer'
-                }}
-              >
-                © Stripe
-              </Text>
-              <Anchor td='none' c='#494949' size='sm'>
-                • Contact •
-              </Anchor>
-              <Anchor td='none' c='#494949' size='sm'>
-                Privacy & terms
-              </Anchor>
-            </Flex>
-          </Flex>
         </Flex>
       </Center>
     </BackgroundImage>
