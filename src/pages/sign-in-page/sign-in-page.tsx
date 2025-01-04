@@ -98,7 +98,7 @@ const SignInPage: React.FC = () => {
     <BackgroundImage src={Background}>
       <Center style={{ height: '100vh' }}>
         <Flex direction='column' gap={30}>
-          <Box pl={0}>
+          <Box pl={20}>
             <img src={StripeIcon} alt='Stripe Logo' width={58} height={24} />
           </Box>
           <Box
@@ -170,9 +170,42 @@ const SignInPage: React.FC = () => {
                 <Button w='100%' type='submit' mt='md' size='md'>
                   Continue
                 </Button>
+
+                <Anchor ta='center' href='/sign-on' size='sm' td='none'>
+                  Use single sign-on (SSO) instead
+                </Anchor>
               </Flex>
             </form>
           </Box>
+          <Flex direction='column' gap={20}>
+            <Flex gap={3} pl={20}>
+              <Text size='sm' c='#494949'>
+                Don’t have an account?
+              </Text>
+              <Anchor size='sm' href='/sign-in'>
+                Sign up
+              </Anchor>
+            </Flex>
+            <Flex gap={5} pl={20}>
+              <Text
+                size='sm'
+                style={{
+                  color: '#494949',
+                  textTransform: 'capitalize',
+                  fontWeight: 400,
+                  cursor: 'pointer'
+                }}
+              >
+                © Stripe
+              </Text>
+              <Anchor td='none' c='#494949' size='sm'>
+                • Contact •
+              </Anchor>
+              <Anchor td='none' c='#494949' size='sm'>
+                Privacy & terms
+              </Anchor>
+            </Flex>
+          </Flex>
         </Flex>
       </Center>
     </BackgroundImage>
