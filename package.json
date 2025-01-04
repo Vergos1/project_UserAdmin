@@ -12,8 +12,6 @@
   "dependencies": {
     "@mantine/core": "^7.15.2",
     "@mantine/form": "^7.15.2",
-    "@mantine/modals": "^7.15.2",
-    "@mantine/notifications": "^7.15.2",
     "@tabler/icons-react": "^3.26.0",
     "autoprefixer": "^10.4.20",
     "next": "^15.1.3",
