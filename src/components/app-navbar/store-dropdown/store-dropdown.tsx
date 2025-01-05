@@ -11,7 +11,7 @@ import reports from './../../../assets/icons/navBar/reports.svg';
 import settings from './../../../assets/icons/navBar/settings.svg';
 
 
-function StoreNameDropdown() {
+function StoreDropdown() {
   const styleLogo = { width: '1vw', height: '1vw' };
 
   return (
@@ -48,4 +48,4 @@ function StoreNameDropdown() {
   )
 }
 
-export default StoreNameDropdown
+export default StoreDropdown

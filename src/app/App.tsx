@@ -3,8 +3,6 @@ import '@mantine/core/styles/loader.css'
 import '@mantine/core/styles.css'
 import '@mantine/notifications/styles.css'
 import '../assets/styles/index.scss'
-// import '@mantine/charts/styles.css'
-
 // styles
 import React from 'react'
 import { AppProvider } from './AppProvider'
