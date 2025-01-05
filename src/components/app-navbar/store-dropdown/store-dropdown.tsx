@@ -12,7 +12,7 @@ import settings from './../../../assets/icons/navBar/settings.svg';
 
 
 function StoreDropdown() {
-  const styleLogo = { width: '1vw', height: '1vw' };
+  const styleLogo = { width: '1rem', height: '1rem' };
 
   return (
     <>

@@ -4,6 +4,7 @@ import StoreNameDropdown from './../components/app-navbar/store-dropdown/store-d
 import React from 'react'
 import { useDisclosure } from '@mantine/hooks'
 import AppNavbar from './../components/app-navbar/app-navbar'
+import AppHeader from './../components/app-header/app-header'
 
 const AppLayout = () => {
   const [opened, { toggle }] = useDisclosure()
@@ -18,6 +19,7 @@ const AppLayout = () => {
         <AppShell.Header>
           <Group h='100%' px='md'>
             <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
+            <AppHeader/>
           </Group>
         </AppShell.Header>
         <AppShell.Navbar p='md'>
