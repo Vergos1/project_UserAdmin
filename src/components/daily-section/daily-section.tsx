@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LineChart } from '@mantine/charts'
 import s from './daily-section.module.scss'
-import { Box, Flex, Title, Menu, Button, Text, Group, NumberFormatter } from '@mantine/core'
+import { Box, Flex, Title, Menu, Button, Text, Group, NumberFormatter, Select } from '@mantine/core'
 import { IconChevronDown } from '@tabler/icons-react'
 
 const DailySection: React.FC = () => {
+  const [isOpenFirstSelect, setIsOpenFirstSelect] = useState(false)
+  const [isOpenSecondSelect, setIsOpenSecondSelect] = useState(false)
+
   const data = [
     { date: '00:00', EUR: 200 },
     { date: '03:00', EUR: 300 },
@@ -31,50 +34,46 @@ const DailySection: React.FC = () => {
             borderRight: '1px solid #e0e0e0'
           }}
         >
-          <Flex direction='column'>
-            <Flex align='center' justify='center' gap={40}>
-              <Box pt={5}>
-                <Menu>
-                  <Menu.Target>
-                    <Button variant='subtle' size='sm' display='flex' style={{ alignItems: 'center', gap: '4px' }}>
-                      Gross volume
-                      <IconChevronDown size={16} />
-                    </Button>
-                  </Menu.Target>
-                  <Menu.Dropdown>
-                    <Menu.Item>Connect gross volume</Menu.Item>
-                    <Menu.Item>Net volume from sales</Menu.Item>
-                    <Menu.Item>New customers</Menu.Item>
-                    <Menu.Item>New connected accounts</Menu.Item>
-                    <Menu.Item>Successful payments</Menu.Item>
-                  </Menu.Dropdown>
-                </Menu>
+          <Flex align='center' gap={20}>
+            <Flex direction='column' align='start' justify='center'>
+              <Box>
+                <Select
+                  variant='unstyled'
+                  mt='md'
+                  data={[
+                    'Gross volume',
+                    'Connect gross volume',
+                    'Net volume from sales',
+                    'New customers',
+                    'New connected accounts',
+                    'Successful payments'
+                  ]}
+                  rightSection={<IconChevronDown className={isOpenFirstSelect ? s.selectOpen : s.selectClose} />}
+                  defaultValue='Gross volume'
+                  onDropdownOpen={() => setIsOpenFirstSelect(true)}
+                  onDropdownClose={() => setIsOpenFirstSelect(false)}
+                />
               </Box>
-              <Box pt={5}>
-                <Menu>
-                  <Menu.Target>
-                    <Button variant='subtle' size='sm' style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      Yesterday
-                      <IconChevronDown size={16} />
-                    </Button>
-                  </Menu.Target>
-                  <Menu.Dropdown>
-                    <Menu.Item>Today</Menu.Item>
-                    <Menu.Item>Last week</Menu.Item>
-                    <Menu.Item>Last month</Menu.Item>
-                  </Menu.Dropdown>
-                </Menu>
+              <Box>
+                <NumberFormatter
+                  prefix='€'
+                  value={3500}
+                  thousandSeparator=','
+                  decimalSeparator='.'
+                  style={{ fontSize: '20px' }}
+                />
               </Box>
             </Flex>
-            <Flex align='end' justify='center' gap={90}>
-              <NumberFormatter
-                prefix='€'
-                value={3500}
-                thousandSeparator=','
-                decimalSeparator='.'
-                style={{ fontSize: '20px' }}
+            <Flex direction='column' align='start' justify='center' gap={5}>
+              <Select
+                variant='unstyled'
+                mt='md'
+                data={['Yesterday', 'Today', 'Last week', 'Last month']}
+                rightSection={<IconChevronDown className={isOpenSecondSelect ? s.selectOpen : s.selectClose} />}
+                defaultValue='Yesterday'
+                onDropdownOpen={() => setIsOpenSecondSelect(true)}
+                onDropdownClose={() => setIsOpenSecondSelect(false)}
               />
-
               <NumberFormatter
                 prefix='€'
                 value={1253.61}
@@ -84,7 +83,7 @@ const DailySection: React.FC = () => {
               />
             </Flex>
           </Flex>
-          <Box w='100%' h={200} pr={16}>
+          <Box w='100%' h={200} pr={16} pt={20}>
             <LineChart
               h='100%'
               w='100%'
