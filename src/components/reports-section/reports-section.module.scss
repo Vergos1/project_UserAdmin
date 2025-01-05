@@ -1,0 +1,8 @@
+.selectOpen {
+  transform: rotate(-180deg);
+  transition: transform 0.15s ease;
+}
+.selectClose {
+  transform: rotate(0deg);
+  transition: transform 0.15s ease;
+}

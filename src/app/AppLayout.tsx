@@ -23,11 +23,13 @@ const AppLayout = () => {
           </Group>
         </AppShell.Header>
         <AppShell.Navbar p='md'>
-          <AppNavbar opened={opened} toggle={toggle}/>
+          <AppNavbar opened={opened} toggle={toggle} />
           <StoreNameDropdown />
         </AppShell.Navbar>
+        <AppShell.Main>
+          <Outlet />
+        </AppShell.Main>
       </AppShell>
-      <Outlet />
     </>
   )
 }
