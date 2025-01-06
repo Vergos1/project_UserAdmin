@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import { AppShell, Burger, Group } from '@mantine/core'
-import StoreNameDropdown from './../components/app-navbar/store-dropdown/store-dropdown'
+import StoreNameBtn from './../components/app-navbar/store-name-btn/store-name-btn'
 import React from 'react'
 import { useDisclosure } from '@mantine/hooks'
 import AppNavbar from './../components/app-navbar/app-navbar'
 import AppHeader from './../components/app-header/app-header'
+import NavbarMenu from './../components/app-navbar/navbar-menu/navbar-menu'
 
 const AppLayout = () => {
   const [opened, { toggle }] = useDisclosure()
@@ -23,8 +24,9 @@ const AppLayout = () => {
           </Group>
         </AppShell.Header>
         <AppShell.Navbar p='md'>
-          <AppNavbar opened={opened} toggle={toggle} />
-          <StoreNameDropdown />
+          <AppNavbar opened={opened} toggle={toggle}/>
+          <StoreNameBtn/>
+          <NavbarMenu/>
         </AppShell.Navbar>
         <AppShell.Main>
           <Outlet />
