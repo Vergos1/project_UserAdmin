@@ -43,7 +43,7 @@ function NavbarMenu() {
       variant="subtle"
       style={{
         marginTop: [0, 1, 7].includes(index) ? '1rem' : '0',
-        padding: '0.2rem'
+        padding: '0.2rem',
       }}
     />
   ));
@@ -59,7 +59,7 @@ function NavbarMenu() {
     />
   );
 
-  return <Box w={200}>{items}</Box>;
+  return <Box style={{ width: '100%' }}>{items}</Box>;
 }
 
 export default NavbarMenu;

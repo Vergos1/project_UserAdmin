@@ -13,9 +13,8 @@ const AppLayout = () => {
     <>
       <AppShell
         layout='alt'
-        header={{ height: '10%' }}
-        navbar={{ width: '20%', breakpoint: 'sm', collapsed: { mobile: !opened } }}
-        padding='md'
+        header={{ height: '7%' }}
+        navbar={{ width: '13%', breakpoint: 'sm', collapsed: { mobile: !opened } }}
       >
         <AppShell.Header>
           <Group h='100%' px='md'>
@@ -28,8 +27,8 @@ const AppLayout = () => {
           <StoreNameBtn/>
           <NavbarMenu/>
         </AppShell.Navbar>
-        <AppShell.Main>
-          <Outlet />
+        <AppShell.Main style={{ paddingTop: '4rem' }}>
+            <Outlet />
         </AppShell.Main>
       </AppShell>
     </>
