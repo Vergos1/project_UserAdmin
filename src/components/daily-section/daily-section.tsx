@@ -18,8 +18,10 @@ const DailySection: React.FC = () => {
   ]
 
   return (
-    <Flex pl={50} pr={50} direction='column' gap={50}>
-      <Title pt={20}>Today</Title>
+    <Flex direction='column' gap={50}>
+      <Title pl={16} pt={16}>
+        Today
+      </Title>
       <Flex
         style={{
           borderTop: '1px solid #e0e0e0',
@@ -27,6 +29,7 @@ const DailySection: React.FC = () => {
         }}
       >
         <Flex
+          pl={16}
           direction='column'
           w='70%'
           align='flex-start'
