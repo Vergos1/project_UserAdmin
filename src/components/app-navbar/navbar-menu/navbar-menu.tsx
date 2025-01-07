@@ -13,7 +13,7 @@ import settings from './../../../assets/icons/navBar/settings.svg'
 import { Box, NavLink, Switch } from '@mantine/core'
 
 const data = [
-  { icon: home, label: 'home', URL: '/home' },
+  { icon: home, label: 'Home', URL: '/home' },
   { icon: payments, label: 'Payments', URL: '/payments' },
   { icon: balances, label: 'Balances', URL: '/balances' },
   { icon: customers, label: 'Customers', URL: '/customers' },
