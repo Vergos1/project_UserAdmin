@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { LineChart } from '@mantine/charts'
-import s from './daily-section.module.scss'
+import s from './today-section.module.scss'
 import { Box, Flex, Title, Menu, Button, Text, Group, NumberFormatter, Select } from '@mantine/core'
 import { IconChevronDown } from '@tabler/icons-react'
 
@@ -18,7 +18,7 @@ const DailySection: React.FC = () => {
   ]
 
   return (
-    <Flex direction='column' gap={50}>
+    <Flex direction='column' gap={20}>
       <Title pl={16} pt={16}>
         Today
       </Title>
@@ -51,7 +51,9 @@ const DailySection: React.FC = () => {
                     'New connected accounts',
                     'Successful payments'
                   ]}
-                  rightSection={<IconChevronDown className={isOpenFirstSelect ? s.selectOpen : s.selectClose} />}
+                  rightSection={
+                    <IconChevronDown size={20} className={isOpenFirstSelect ? s.selectOpen : s.selectClose} />
+                  }
                   defaultValue='Gross volume'
                   onDropdownOpen={() => setIsOpenFirstSelect(true)}
                   onDropdownClose={() => setIsOpenFirstSelect(false)}
@@ -72,7 +74,9 @@ const DailySection: React.FC = () => {
                 variant='unstyled'
                 mt='md'
                 data={['Yesterday', 'Today', 'Last week', 'Last month']}
-                rightSection={<IconChevronDown className={isOpenSecondSelect ? s.selectOpen : s.selectClose} />}
+                rightSection={
+                  <IconChevronDown size={20} className={isOpenSecondSelect ? s.selectOpen : s.selectClose} />
+                }
                 defaultValue='Yesterday'
                 onDropdownOpen={() => setIsOpenSecondSelect(true)}
                 onDropdownClose={() => setIsOpenSecondSelect(false)}
