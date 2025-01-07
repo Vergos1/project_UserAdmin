@@ -12,9 +12,17 @@ import {
   Card,
   Group,
   Badge,
-  NumberFormatter
+  NumberFormatter,
+  Tooltip
 } from '@mantine/core'
-import { IconChevronDown, IconCalendar, IconComponents, IconSettings, IconInfoCircle } from '@tabler/icons-react'
+import {
+  IconChevronDown,
+  IconCalendar,
+  IconComponents,
+  IconSettings,
+  IconInfoCircle,
+  IconSelector
+} from '@tabler/icons-react'
 import { DatePickerInput } from '@mantine/dates'
 import { LineChart } from '@mantine/charts'
 
@@ -181,7 +189,7 @@ const ReportSection: React.FC = () => {
               }}
               defaultValue='Monthly'
               data={['Monthly', 'Yearly', 'Days']}
-              rightSection={iconSecond}
+              rightSection={<IconSelector size={16} />}
             />
           </Box>
 
@@ -197,11 +205,9 @@ const ReportSection: React.FC = () => {
               borderRadius: rem(6),
               border: '1px solid #ccc',
               boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-              width: '114px',
+              minWidth: '135px',
               height: '29px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
+              display: 'flex'
             }}
           >
             {isEditing ? 'Stop editing' : 'Edit charts'}
@@ -215,9 +221,17 @@ const ReportSection: React.FC = () => {
               <Card.Section inheritPadding py='md'>
                 <Group align='center' gap={0} justify='space-between'>
                   <Flex align='center' gap={8}>
-                    <Text size='md' c='#424242' fw={400}>
-                      Grouse volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
-                    </Text>
+                    <Tooltip label='Cash volume'>
+                      <Text
+                        size='md'
+                        c='#424242'
+                        fw={400}
+                        style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
+                      >
+                        Grouse volume
+                        <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
+                      </Text>
+                    </Tooltip>
                     <Badge variant='light' color='#26a101' size='md' radius='xs'>
                       3.2%
                     </Badge>
@@ -270,9 +284,16 @@ const ReportSection: React.FC = () => {
               <Card.Section inheritPadding py='md'>
                 <Group align='center' gap={0} justify='space-between'>
                   <Flex align='center' gap={8}>
-                    <Text size='md' c='#424242' fw={400}>
-                      Connect gross volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
-                    </Text>
+                    <Tooltip label='Cash volume'>
+                      <Text
+                        size='md'
+                        c='#424242'
+                        fw={400}
+                        style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
+                      >
+                        Connect gross volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
+                      </Text>
+                    </Tooltip>
                     <Badge variant='light' color='#474747' size='md' radius='xs'>
                       0.0%
                     </Badge>
@@ -325,9 +346,16 @@ const ReportSection: React.FC = () => {
               <Card.Section inheritPadding py='md'>
                 <Group align='center' gap={0} justify='space-between'>
                   <Flex align='center' gap={8}>
-                    <Text size='md' c='#424242' fw={400}>
-                      Net volume from sales <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
-                    </Text>
+                    <Tooltip label='Cash volume'>
+                      <Text
+                        size='md'
+                        c='#424242'
+                        fw={400}
+                        style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
+                      >
+                        Net volume from sales <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
+                      </Text>
+                    </Tooltip>
                     <Badge variant='light' color='#c00000' size='md' radius='xs'>
                       -60.3%
                     </Badge>
@@ -380,9 +408,16 @@ const ReportSection: React.FC = () => {
               <Card.Section inheritPadding py='md'>
                 <Group align='center' gap={0} justify='space-between'>
                   <Flex align='center' gap={8}>
-                    <Text size='md' c='#424242' fw={400}>
-                      New customers <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
-                    </Text>
+                    <Tooltip label='Cash volume'>
+                      <Text
+                        size='md'
+                        c='#424242'
+                        fw={400}
+                        style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
+                      >
+                        New customers <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
+                      </Text>
+                    </Tooltip>
                     <Badge variant='light' color='#26a101' size='md' radius='xs'>
                       0.0%
                     </Badge>
@@ -393,14 +428,14 @@ const ReportSection: React.FC = () => {
                 </Group>
                 <Flex justify='space-between' align='center'>
                   <NumberFormatter
-                    prefix='€'
+                    prefix=''
                     value={23}
                     thousandSeparator=','
                     decimalSeparator='.'
                     style={{ fontSize: '20px' }}
                   />
                   <NumberFormatter
-                    prefix='€'
+                    prefix=''
                     value={12}
                     thousandSeparator=','
                     decimalSeparator='.'
@@ -435,9 +470,16 @@ const ReportSection: React.FC = () => {
               <Card.Section inheritPadding py='md'>
                 <Group align='center' gap={0} justify='space-between'>
                   <Flex align='center' gap={8}>
-                    <Text size='md' c='#424242' fw={400}>
-                      Grouse volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
-                    </Text>
+                    <Tooltip label='Cash volume'>
+                      <Text
+                        size='md'
+                        c='#424242'
+                        fw={400}
+                        style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
+                      >
+                        Grouse volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
+                      </Text>
+                    </Tooltip>
                     <Badge variant='light' color='#26a101' size='md' radius='xs'>
                       10.0%
                     </Badge>
@@ -448,14 +490,14 @@ const ReportSection: React.FC = () => {
                 </Group>
                 <Flex justify='space-between' align='center'>
                   <NumberFormatter
-                    prefix='€'
+                    prefix=''
                     value={41}
                     thousandSeparator=','
                     decimalSeparator='.'
                     style={{ fontSize: '20px' }}
                   />
                   <NumberFormatter
-                    prefix='€'
+                    prefix=''
                     value={37}
                     thousandSeparator=','
                     decimalSeparator='.'
@@ -490,9 +532,17 @@ const ReportSection: React.FC = () => {
               <Card.Section inheritPadding py='md'>
                 <Group align='center' gap={0} justify='space-between'>
                   <Flex align='center' gap={8}>
-                    <Text size='md' c='#424242' fw={400}>
-                      Grouse volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
-                    </Text>
+                    <Tooltip label='Cash volume'>
+                      <Text
+                        size='md'
+                        c='#424242'
+                        fw={400}
+                        style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
+                      >
+                        Grouse volume <IconInfoCircle size={16} style={{ verticalAlign: 'middle' }} />
+                      </Text>
+                    </Tooltip>
+
                     <Badge variant='light' color='#26a101' size='md' radius='xs'>
                       23.4%
                     </Badge>
@@ -503,14 +553,14 @@ const ReportSection: React.FC = () => {
                 </Group>
                 <Flex justify='space-between' align='center'>
                   <NumberFormatter
-                    prefix='€'
+                    prefix=''
                     value={312}
                     thousandSeparator=','
                     decimalSeparator='.'
                     style={{ fontSize: '20px' }}
                   />
                   <NumberFormatter
-                    prefix='€'
+                    prefix=''
                     value={0}
                     thousandSeparator=','
                     decimalSeparator='.'
