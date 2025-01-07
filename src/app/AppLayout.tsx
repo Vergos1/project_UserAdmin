@@ -18,7 +18,7 @@ const AppLayout = () => {
       <AppShell
         layout="alt"
         header={isSignInPage ? undefined : { height: '7%' }}
-        navbar={isSignInPage ? undefined : { width: '15%', breakpoint: 'sm', collapsed: { mobile: !opened } }}
+        navbar={isSignInPage ? undefined : { width: '14%', breakpoint: 'sm', collapsed: { mobile: !opened } }}
         padding="xs"
       >
 
@@ -37,7 +37,7 @@ const AppLayout = () => {
             </AppShell.Navbar>
           </>
         )}
-        <AppShell.Main>
+        <AppShell.Main style={{ paddingTop: '4rem' }}>
           <Outlet />
         </AppShell.Main>
       </AppShell>
