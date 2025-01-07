@@ -27,7 +27,7 @@ const AppLayout = () => {
           <StoreNameBtn/>
           <NavbarMenu/>
         </AppShell.Navbar>
-        <AppShell.Main style={{ paddingTop: '4rem' }}>
+        <AppShell.Main style={{ paddingTop: '4rem', paddingLeft: '13rem' }}>
             <Outlet />
         </AppShell.Main>
       </AppShell>

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Autocomplete, Loader } from '@mantine/core';
+import { Autocomplete, Button, Loader } from '@mantine/core'
 import search from './../../assets/icons/navBar/search.svg'
 import notifications from './../../assets/icons/header/notifications.svg'
 import help from './../../assets/icons/header/help.svg'
 import account from './../../assets/icons/header/account.svg'
 
 const AppHeader = () => {
-  const styleLogo = {width: '1rem', height: '1rem'}
+  const styleLogo = {width: '1.3rem', height: '1.3rem'}
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<string[]>([]);
@@ -33,10 +33,20 @@ const AppHeader = () => {
         loading ? (
           <Loader size="xs" />
         ) : (
-          <div style={{ display: 'flex', gap: '10px', marginRight: '40px' }}>
-            <img src={notifications} alt="notifications" style={{ width: '1rem', height: '1rem' }} />
-            <img src={help} alt="help" style={{ width: '1rem', height: '1rem' }} />
-            <img src={account} alt="account" style={{ width: '1rem', height: '1rem' }} />
+          <div style={{ display: 'flex', marginRight: '4rem' }}>
+            <Button variant="subtle" size="xs" style={{ padding: 6}}>
+              <img
+                src={notifications}
+                alt="notifications"
+                style={{ width: '1rem', height: '1rem' }}
+              />
+            </Button>
+            <Button variant="subtle" size="xs" style={{ padding: 6}}>
+              <img src={help} alt="help" style={{ width: '1rem', height: '1rem' }} />
+            </Button>
+            <Button variant="subtle" size="xs" style={{ padding: 6 }}>
+              <img src={account} alt="account" style={{ width: '1rem', height: '1rem' }} />
+            </Button>
           </div>
         )
       }
