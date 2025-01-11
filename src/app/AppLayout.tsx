@@ -14,34 +14,31 @@ const AppLayout = () => {
   const isSignInPage = location.pathname === '/sign-in';
 
   return (
-    <>
-      <AppShell
-        layout="alt"
-        header={isSignInPage ? undefined : { height: '7%' }}
-        navbar={isSignInPage ? undefined : { width: '14%', breakpoint: 'sm', collapsed: { mobile: !opened } }}
-        padding="xs"
-      >
-
-        {!isSignInPage && (
-          <>
-            <AppShell.Header>
-              <Group h="100%" px="md">
-                <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                <AppHeader />
-              </Group>
-            </AppShell.Header>
-            <AppShell.Navbar p="md">
-              <AppNavbar opened={opened} toggle={toggle} />
-              <StoreNameBtn />
-              <NavbarMenu />
-            </AppShell.Navbar>
-          </>
-        )}
-        <AppShell.Main style={{ paddingTop: '4rem' }}>
-          <Outlet />
-        </AppShell.Main>
-      </AppShell>
-    </>
+    <AppShell
+      layout="alt"
+      header={isSignInPage ? undefined : { height: '7%' }}
+      navbar={isSignInPage ? undefined : { width: '14%', breakpoint: 'sm', collapsed: { mobile: !opened } }}
+      padding={isSignInPage ? 0 : 'xs'}
+    >
+      {!isSignInPage && (
+        <>
+          <AppShell.Header>
+            <Group h="100%" px="md">
+              <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+              <AppHeader />
+            </Group>
+          </AppShell.Header>
+          <AppShell.Navbar p="md">
+            <AppNavbar opened={opened} toggle={toggle} />
+            <StoreNameBtn />
+            <NavbarMenu />
+          </AppShell.Navbar>
+        </>
+      )}
+      <AppShell.Main style={{ paddingTop: isSignInPage ? '0' : '4rem' }}>
+        <Outlet />
+      </AppShell.Main>
+    </AppShell>
   );
 };
 
