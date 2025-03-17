@@ -90,7 +90,7 @@ const ReportSection: React.FC = () => {
 
   const icon = <IconCalendar style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
 
-  const iconSecond = <IconComponents style={{ width: rem(16), height: rem(16) }} />
+  // const iconSecond = <IconComponents style={{ width: rem(16), height: rem(16) }} />
   return (
     <Box pt={50}>
       <Title pl={16} pb={16}>

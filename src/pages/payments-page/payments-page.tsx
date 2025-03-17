@@ -325,11 +325,9 @@ const PaymentsPage: React.FC = () => {
   ) => {
     const paginatedIndexes = getPaginatedData(rows).map((_, index) => index + (currentPage - 1) * rowsPerPage)
 
-    // Если хотя бы один из текущей страницы выделен, снимаем выделение всех
     if (paginatedIndexes.some(index => selectedRows.includes(index))) {
       setSelectedRows(selectedRows.filter(id => !paginatedIndexes.includes(id)))
     } else {
-      // Если никто не выделен, выделяем все
       setSelectedRows([...selectedRows, ...paginatedIndexes.filter(id => !selectedRows.includes(id))])
     }
   }
