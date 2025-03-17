@@ -9,6 +9,7 @@ function StoreNameBtn() {
   return (
     <>
       <NavLink
+        style={{marginBottom: '1rem'}}
         className='navlink-store'
         label='Store name'
         leftSection={<img src={StoreLogo} alt='store' style={styleLogo} />}

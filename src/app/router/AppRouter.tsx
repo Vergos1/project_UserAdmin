@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('../../pages/home-page/home-page'))
 const SignInPage = lazy(() => import('../../pages/sign-in-page/sign-in-page'))
 const PaymentsPage = lazy(() => import('../../pages/payments-page/payments-page'))
 
+
 function AppRouter() {
   return (
     <Suspense fallback={<Loader color='gray' />}>
